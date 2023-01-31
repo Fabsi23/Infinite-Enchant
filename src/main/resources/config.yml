@@ -16,7 +16,7 @@ Config:
     plugin-prefix: '&c[Infinite Enchant]&r'
 
 
-  # At this part of the config you can set all plugin messages except console outputs and help lists.
+  # At this part of the config you can set all plugin messages except console outputs.
   Messages:
 
     # This message gets send to a player that enchanted the item in main hand
