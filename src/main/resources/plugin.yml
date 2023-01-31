@@ -1,0 +1,5 @@
+name: InfiniteEnchant
+version: 1.0.0
+author: Fabsi
+api-version: 1.19
+main: me.fabsi.InfiniteEnchant.InfiniteEnchant
