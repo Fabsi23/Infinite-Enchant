@@ -3,7 +3,7 @@
 
 	<groupId>me.fabsi</groupId>
 	<artifactId>infiniteenchant</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>InfiniteEnchant</name>
@@ -12,7 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
-		<mc.version>1.19.2-R0.1-SNAPSHOT</mc.version>
+		<mc.version>26.1.2-R0.1-SNAPSHOT</mc.version>
 	</properties>
 
 	<repositories>
@@ -28,22 +28,21 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>io.papermc.paper</groupId>
-			<artifactId>paper-api</artifactId>
-			<version>${mc.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot</artifactId>
 			<version>${mc.version}</version>
-			<classifier>remapped-mojang</classifier>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.bstats</groupId>
 			<artifactId>bstats-bukkit</artifactId>
 			<version>3.0.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>26.0.2</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>

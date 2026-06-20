@@ -4,6 +4,7 @@ import me.fabsi.InfiniteEnchant.config.InfiniteEnchantConfig.CONFIGTEXT;
 import me.fabsi.InfiniteEnchant.utils.MessageSender;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Registry;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
 import org.bukkit.enchantments.Enchantment;
@@ -11,9 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.StreamSupport;
 
 public class CMDinfiniteenchant extends BukkitCommand {
 
@@ -26,6 +26,25 @@ public class CMDinfiniteenchant extends BukkitCommand {
         this.usageMessage = "/infiniteenchant";
         this.setPermission("infiniteenchant.infiniteenchant");
         this.setAliases(new ArrayList<>());
+    }
+
+    @Override
+    public @NotNull List<String> tabComplete(@NotNull CommandSender sender, @NotNull String alias, @NotNull String[] args) throws IllegalArgumentException {
+        if (args.length == 1) {
+            String input = args[0].toLowerCase();
+            return StreamSupport.stream(Registry.ENCHANTMENT.spliterator(), false)
+                    .map(enchantment -> enchantment.getKey().getKey())
+                    .filter(key -> key.toLowerCase().startsWith(input))
+                    .toList();
+        }
+        Enchantment enchantment = Registry.ENCHANTMENT.get(NamespacedKey.minecraft(args[0].toLowerCase()));
+
+        if (args.length == 2) {
+            if (enchantment != null) {
+                return List.of("1", "5", "10");
+            }
+        }
+        return Collections.emptyList();
     }
 
     @Override
