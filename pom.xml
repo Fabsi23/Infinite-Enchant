@@ -3,7 +3,7 @@
 
 	<groupId>me.fabsi</groupId>
 	<artifactId>infiniteenchant</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<packaging>jar</packaging>
 
 	<name>InfiniteEnchant</name>
@@ -78,5 +78,12 @@
 				</executions>
 			</plugin>
 		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 	</build>
 </project>
